@@ -47,7 +47,7 @@ const solutions = [
 
 export default function IndustrySolutions() {
   return (
-    <section className="bg-gray-50 py-16">
+    <section className=" py-16 lg:mt-20 md:mt-10" >
       <div className=" px-6">
         {/* Heading */}
         <div className="text-center mb-12">

@@ -51,7 +51,7 @@ export default function CreditLimitTiers() {
       <p className="text-gray-600 mb-8">
         Our system suggests credit limits based on your credit score range
       </p>
-      <div className="grid md:grid-cols-4 px-6 gap-6">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 px-6 gap-6">
         {tiers.map((tier, idx) => (
           <Card
             key={idx}

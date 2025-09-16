@@ -1,5 +1,4 @@
 import Logo from "@/components/logo";
-import { FaRegCopyright } from "react-icons/fa";
 import { FiPhone } from "react-icons/fi";
 import { MdOutlineMail } from "react-icons/md";
 import { SlLocationPin } from "react-icons/sl";
@@ -54,7 +53,7 @@ export default function Footer() {
         <div className="md:flex justify-between ">
              {/*left  */}
              <div className="flex  gap-1 items-center">
-                <FaRegCopyright /> GUEHI AND CO.All rights reserved.
+                © 2025 GUEHI AND CO. All rights reserved.
              </div>
              <div className="mt-4 md:mt-0 flex gap-1">
                <p>Privacy Policy </p>
