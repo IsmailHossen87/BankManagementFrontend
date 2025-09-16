@@ -11,13 +11,13 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
-import UserMenu from "@/components/user-menu"
+import { Link } from "react-router"
 
 const navigationLinks = [
   { href: "#", label: "Home" },
   { href: "#", label: "About" },
   { href: "#", label: "DashBoard" },
-  { href: "#", label: "About" },
+
 ]
 
 export default function Header() {
@@ -77,7 +77,7 @@ export default function Header() {
           </Popover>
 
           {/* Logo */}
-          <a href="#" className="text-primary hover:text-primary/90">
+          <a href="#" className="text-primary hidden md:block hover:text-primary/90">
             <Logo />
           </a>
         </div>
@@ -102,7 +102,9 @@ export default function Header() {
 
         {/* Right: UserMenu */}
         <div className="flex items-center gap-4">
-          <UserMenu />
+           <Button asChild className="text-sm ">
+              <Link to="/register">Sign Up</Link>
+            </Button>
         </div>
       </div>
     </header>
