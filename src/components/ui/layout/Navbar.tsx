@@ -1,5 +1,16 @@
 import Logo from "@/components/logo"
 import { Button } from "@/components/ui/button"
+import image from "../../../assets/user.png"
+import { LuLogOut } from "react-icons/lu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -11,16 +22,24 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+import { useMeQuery } from "@/redux/feature/auth/authApi"
+
+
+
 import { Link } from "react-router"
 
 const navigationLinks = [
-  { href: "#", label: "Home" },
+  { href: "/", label: "Home" },
   { href: "#", label: "About" },
   { href: "#", label: "DashBoard" },
 
 ]
 
 export default function Header() {
+  const { data: userData } = useMeQuery(undefined)
+
+
+
   return (
     <header className="border-b px-4 md:px-6">
       <div className="flex container mx-auto h-16 items-center justify-between">
@@ -102,9 +121,31 @@ export default function Header() {
 
         {/* Right: UserMenu */}
         <div className="flex items-center gap-4">
-           <Button asChild className="text-sm ">
+          {userData?.data?.data ? (
+            <DropdownMenu>
+              <DropdownMenuTrigger className="relative" asChild>
+                <img
+                  className="w-12 rounded-full border cursor-pointer"
+                  src={image}
+                  alt="user"
+                />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent  className="w-20 absolute -left-46 -mt-10">
+                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem asChild>
+                  <Link to="/dashboard">Dashboard</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => console.log("logout clicked")}>
+                  Logout <LuLogOut className= "text-red-500" />
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ) : (
+            <Button asChild className="text-sm">
               <Link to="/register">Sign Up</Link>
             </Button>
+          )}
         </div>
       </div>
     </header>

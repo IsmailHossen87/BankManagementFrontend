@@ -8,7 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import Password from "@/components/ui/password";
-import { useRegisterMutation } from "@/redux/feature/auth/auth.Api";
+import { useRegisterMutation } from "@/redux/feature/auth/authApi";
 import { toast } from "sonner";
 import { useState } from "react";
 

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -9,6 +10,7 @@ import { toast } from "sonner"
 import { FaEnvelope, FaLock } from "react-icons/fa"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { useLoginMutation } from "@/redux/feature/auth/authApi"
 
 // ✅ Zod Schema
 const loginSchema = z.object({
@@ -19,6 +21,7 @@ const loginSchema = z.object({
 
 export function LoginForm({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   const navigate = useNavigate()
+    const [loginInfo] = useLoginMutation();
 
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
@@ -31,12 +34,16 @@ export function LoginForm({ className, ...props }: React.HTMLAttributes<HTMLDivE
 
   const onSubmit = async (data: z.infer<typeof loginSchema>) => {
     try { 
-        const loginInfo = {
+        const logindata = {
             email: data.email,
             password: data.password
         }
       // এখানে তোমার API কল করবে
-      console.log("Login data:", loginInfo)
+      const res = await loginInfo(logindata).unwrap();
+      if(res.success){
+          toast("Logged in Successfully")
+          navigate("/")
+      }
       toast.success("Logged in Successfully")
       navigate("/")
     } catch (error: any) {
