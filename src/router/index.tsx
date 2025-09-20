@@ -7,8 +7,10 @@ import { RegisterForm } from "@/pages/register";
 
 
 import { createBrowserRouter } from "react-router";
-import CompleteProfile from "@/pages/CompleteProfile";
+import CompleteProfile from "@/pages/user/CompleteProfile";
 import AdminDasboardLayout from "@/pages/DashBoardLaylout/Admin/AdminDasboardLayout";
+import DataAnalysic from "@/pages/user/CreditScore";
+import CreditScore from "@/pages/user/CreditScore";
 
 export const router = createBrowserRouter([
     {
@@ -29,6 +31,7 @@ export const router = createBrowserRouter([
     { path: "/login", Component: LoginForm },
     { path: "/register", Component: RegisterForm },
     { path: "/complete-profile", Component: CompleteProfile },
+    { path: "/creditScore", Component: CreditScore },
 
 
    {
@@ -38,6 +41,10 @@ export const router = createBrowserRouter([
     {
       path: "complete-profile",
       Component: CompleteProfile,
+    },
+    {
+      path: "creditScore",
+      Component: CreditScore,
     },
     {
       path: "admin",

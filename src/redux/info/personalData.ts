@@ -9,10 +9,17 @@ export const PersonalDataApi = baseApi.injectEndpoints({
                 method: "POST",
                 data: personalInfo
             })
-        })
+        }),
+         getPersonal: builder.query({
+            query: () => ({
+                url: "info/getMe",
+                method: "GET",
+            }),
+            providesTags: ["PERSONALDATA"]
+        }),
 
     })
 })
 
 
-export const { usePersonalDataMutation } = PersonalDataApi;
+export const { usePersonalDataMutation,useGetPersonalQuery } = PersonalDataApi;
