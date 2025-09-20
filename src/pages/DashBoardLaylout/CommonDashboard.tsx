@@ -14,7 +14,7 @@ export default function DashboardLayout() {
     useEffect(() => {
         if (!isLoading && role) {
             if (role === "USER") {
-                navigate("/dashboard/complete-profile");
+                navigate("/dashboard/userDashboard");
             } else if (role === "ADMIN") {
                 navigate("/dashboard/admin");
             }

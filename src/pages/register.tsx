@@ -54,10 +54,9 @@ export function RegisterForm({ className, ...props }: React.ComponentProps<"form
         }
         try {
             const res = await register(userInfo)
-            console.log(res)
             form.reset()
             toast("User Created Sucessfully")
-            navigate("/")
+            navigate("/login")
 
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {

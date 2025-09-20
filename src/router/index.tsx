@@ -1,7 +1,7 @@
 import App from "@/App";
 import About from "@/pages/About";
 import Home from "@/pages/Home";
-import DashboardLayout from "@/pages/DashBoardLaylout/DashboardLayout";
+import DashboardLayout from "@/pages/DashBoardLaylout/CommonDashboard";
 import { LoginForm } from "@/pages/Login";
 import { RegisterForm } from "@/pages/register";
 
@@ -9,8 +9,9 @@ import { RegisterForm } from "@/pages/register";
 import { createBrowserRouter } from "react-router";
 import CompleteProfile from "@/pages/user/CompleteProfile";
 import AdminDasboardLayout from "@/pages/DashBoardLaylout/Admin/AdminDasboardLayout";
-import DataAnalysic from "@/pages/user/CreditScore";
 import CreditScore from "@/pages/user/CreditScore";
+import UserDashboard from "@/pages/user/userDashBoard";
+import UserDashBoardWithNav from "@/pages/user/UserDashBoardWithNav";
 
 export const router = createBrowserRouter([
     {
@@ -18,7 +19,7 @@ export const router = createBrowserRouter([
         Component: App,
         children: [
             {
-                index: true,    // means "/"
+                index: true,   
                 Component: Home,
             },
             {
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
     {
       path: "complete-profile",
       Component: CompleteProfile,
+    },
+    {
+      path: "userDashboard",
+      Component: UserDashBoardWithNav,
     },
     {
       path: "creditScore",

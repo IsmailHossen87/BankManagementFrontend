@@ -10,7 +10,14 @@ export const PersonalDataApi = baseApi.injectEndpoints({
                 data: personalInfo
             })
         }),
-         getPersonal: builder.query({
+        loanRequest: builder.mutation({
+            query: (body) => ({
+                url: "/info/loan-request",
+                method: "PATCH",
+                data:body
+            })
+        }),
+        getPersonal: builder.query({
             query: () => ({
                 url: "info/getMe",
                 method: "GET",
@@ -22,4 +29,4 @@ export const PersonalDataApi = baseApi.injectEndpoints({
 })
 
 
-export const { usePersonalDataMutation,useGetPersonalQuery } = PersonalDataApi;
+export const { usePersonalDataMutation, useGetPersonalQuery, useLoanRequestMutation } = PersonalDataApi;

@@ -6,7 +6,7 @@ import { Link } from "react-router";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#4B1E2F] text-white">
+    <footer className="bg-[#4B1E2F] text-white -mb-6">
       <div className="mx-auto container px-4 py-16 space-y-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-start">
           {/* Left: Logo + description */}
