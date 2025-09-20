@@ -31,11 +31,11 @@ import { Link } from "react-router"
 const navigationLinks = [
   { href: "/", label: "Home" },
   { href: "#", label: "About" },
-  { href: "#", label: "DashBoard" },
+
 
 ]
 
-export default function Header() {
+export default function Navbar() {
   const { data: userData } = useMeQuery(undefined)
 
 
@@ -134,7 +134,7 @@ export default function Header() {
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem asChild>
-                  <Link to="/dashboard">Dashboard</Link>
+                  <Link to="/dashboard/userDashboard">Dashboard</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => console.log("logout clicked")}>
                   Logout <LuLogOut className= "text-red-500" />

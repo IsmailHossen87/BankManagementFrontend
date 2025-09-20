@@ -45,7 +45,7 @@ export function LoginForm({ className, ...props }: React.HTMLAttributes<HTMLDivE
           navigate("/")
       }
       toast.success("Logged in Successfully")
-      navigate("/")
+      navigate("/complete-profile")
     } catch (error: any) {
       toast.error(error?.message || "Login failed")
     }
